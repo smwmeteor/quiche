@@ -784,7 +784,7 @@ impl Recovery {
     fn pto_time_and_space(
         &self, handshake_status: HandshakeStatus, now: Instant,
     ) -> (Option<Instant>, packet::Epoch) {
-        let mut duration = self.pto() * 2_u32.pow(self.pto_count);
+        let mut duration = self.pto();
 
         // Arm PTO from now when there are no inflight packets.
         if self.bytes_in_flight == 0 {
